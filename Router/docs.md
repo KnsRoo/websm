@@ -53,7 +53,7 @@ $router = Router::init();
 $router->start();
 ```
 Давайте посмотрим, что представляет собой маршрутизация в данном случае.
-![](https://github.com/knsroo/websm/blob/main/dia.png?raw=true)
+![](https://github.com/knsroo/websm/blob/master/dia.png?raw=true)
 Теперь у нас есть Router, но он пуст. Давайте наполним его правилами. Предположим, у нас есть некий класс Controller в файле Controller.php, который реализует какой-то функционал и ему нужно добавить маршрутизацию. Для этого ему нужно создать функцию, традиционно её называют getRoutes(), которая вернет набор правил для работы с данным классом.
 ```php
 //Controller.php
@@ -103,7 +103,7 @@ class Controller
 
 ```
 Посмотрим на структуру маршрутизации:
-![](https://github.com/knsroo/websm/blob/main/dia (1).png?raw=true)
+![](https://github.com/knsroo/websm/blob/master/dia1.png?raw=true)
 Но если мы сейчас попробуем получить доступ к www.domain.com/pages
 GET вернет 404, так как на данный момент Router, который находится в index.php, назовём его главным, не подозревает о существовании Controller. Для того, чтобы определить это нужно воспользоваться методом mount класса Router. Метод mount привяжет все методы нашей группы к главному маршруту
 ```php
@@ -116,7 +116,7 @@ $router->mount(‘/’, (new Controller)->getRoutes());
 $router->start();
 ```
 Посмотрим на нашу структуру теперь:
-![](https://github.com/knsroo/websm/blob/main/dia (2).png?raw=true)
+![](https://github.com/knsroo/websm/blob/master/dia2.png?raw=true)
 Теперь у нас есть список правил:
 Правило | Обработчик
 ---- | ----
@@ -149,7 +149,7 @@ $router->mount(‘/’,(new Index)->getRoutes());
 $router->start();
 ```
 Структура:
-![](https://github.com/knsroo/websm/blob/main/dia (3).png?raw=true)
+![](https://github.com/knsroo/websm/blob/master/dia3.png?raw=true)
 Список правил:
 Правило | Обработчик
 ---- | ----
@@ -175,7 +175,7 @@ class Controller
 }
 ```
 Структура:
-![](https://github.com/knsroo/websm/blob/main/dia (4).png?raw=true)
+![](https://github.com/knsroo/websm/blob/master/dia4.png?raw=true)
 Список правил:
 Правило | Метод | Обработчик
 ---- |----| ----
@@ -254,7 +254,7 @@ class Index
 }
 ```
 Структура:
-![](https://github.com/knsroo/websm/blob/main/dia (5).png?raw=true)
+![](https://github.com/knsroo/websm/blob/master/dia5.png?raw=true)
 Список правил:
 Правило | Метод | Обработчик
 ---- |----| ----
@@ -329,7 +329,7 @@ class Lk
 ```
 Посмотрим на нашу структуру:
 Список правил:
-![](https://github.com/knsroo/websm/blob/main/dia (6).png?raw=true)
+![](https://github.com/knsroo/websm/blob/master/dia6.png?raw=true)
 Правило | Метод | Обработчик
 ---- |----| ----
 www.domain.com | GET | getIndex()
