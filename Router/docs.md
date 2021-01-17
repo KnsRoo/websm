@@ -53,7 +53,9 @@ $router = Router::init();
 $router->start();
 ```
 Давайте посмотрим, что представляет собой маршрутизация в данном случае.
+
 ![](https://github.com/KnsRoo/websm/blob/master/Router/images/dia.png?raw=true)
+
 Теперь у нас есть Router, но он пуст. Давайте наполним его правилами. Предположим, у нас есть некий класс Controller в файле Controller.php, который реализует какой-то функционал и ему нужно добавить маршрутизацию. Для этого ему нужно создать функцию, традиционно её называют getRoutes(), которая вернет набор правил для работы с данным классом.
 ```php
 //Controller.php
@@ -103,7 +105,9 @@ class Controller
 
 ```
 Посмотрим на структуру маршрутизации:
+
 ![](https://github.com/KnsRoo/websm/blob/master/Router/images/dia1.png?raw=true)
+
 Но если мы сейчас попробуем получить доступ к www.domain.com/pages
 GET вернет 404, так как на данный момент Router, который находится в index.php, назовём его главным, не подозревает о существовании Controller. Для того, чтобы определить это нужно воспользоваться методом mount класса Router. Метод mount привяжет все методы нашей группы к главному маршруту
 ```php
@@ -116,7 +120,9 @@ $router->mount(‘/’, (new Controller)->getRoutes());
 $router->start();
 ```
 Посмотрим на нашу структуру теперь:
+
 ![](https://github.com/KnsRoo/websm/blob/master/Router/images/dia2.png?raw=true)
+
 Теперь у нас есть список правил:
 Правило | Обработчик
 ---- | ----
@@ -150,7 +156,9 @@ $router->mount(‘/’,(new Index)->getRoutes());
 $router->start();
 ```
 Структура:
+
 ![](https://github.com/KnsRoo/websm/blob/master/Router/images/dia3.png?raw=true)
+
 Список правил:
 Правило | Обработчик
 ---- | ----
@@ -257,7 +265,9 @@ class Index
 }
 ```
 Структура:
+
 ![](https://github.com/KnsRoo/websm/blob/master/Router/dia5.png?raw=true)
+
 Список правил:
 Правило | Метод | Обработчик
 ---- |----| ----
@@ -333,7 +343,9 @@ class Lk
 ```
 Посмотрим на нашу структуру:
 Список правил:
+
 ![](https://github.com/KnsRoo/websm/blob/master/Router/images/dia6.png?raw=true)
+
 Правило | Метод | Обработчик
 ---- |----| ----
 www.domain.com | GET | getIndex()
